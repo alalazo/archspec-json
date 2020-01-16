@@ -102,7 +102,26 @@
       "patternProperties": {
         "([\\w]*)": {
           "type": "object",
-          "properties": {},
+          "properties": {
+            "reason": {
+              "$comment": "Comment containing the reason why an alias is there",
+              "type": "string"
+            },
+            "any_of": {
+              "$comment": "The alias is true if any of the items is a feature of the target",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "families": {
+              "$comment": "The alias is true if the family of the target is in this list",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
           "additionalProperties": false
         }
       }
